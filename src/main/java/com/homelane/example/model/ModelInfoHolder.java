@@ -1,4 +1,4 @@
-package org.jasrodis.example.model;
+package com.homelane.example.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class ModelInfoHolder {
 	private List<ModelInfo> modelInfoList = new ArrayList<>();
 	
 	public ModelInfoHolder() {
-		modelInfoList = IntStream.range(0, 10).mapToObj(e -> new ModelInfo()).collect(Collectors.toList());
+		modelInfoList = IntStream.range(0, 5).mapToObj(e -> new ModelInfo()).collect(Collectors.toList());
 	}
 
 	public List<ModelInfo> getModelInfoList() {

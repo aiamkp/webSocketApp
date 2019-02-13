@@ -1,19 +1,15 @@
 
-package org.jasrodis.example.controller;
+package com.homelane.example.controller;
 
-import org.jasrodis.example.model.ModelInfoHolder;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.homelane.example.model.ModelInfoHolder;
 
-/**
- * Websocket controller is broadcasting every {fixedDelay = 1000} ms the data through websockets 
 
- * @author jasrodis
- */
 @Controller
 public class WebSocketController {
 
@@ -27,7 +23,7 @@ public class WebSocketController {
 		this.modelInfoHolder = modelInfoHolder;
 	}
 
-	@Scheduled(fixedDelay = 1000)
+	@Scheduled(fixedDelay = 30000)
 	public void sendWebSocketUpdate() throws JsonProcessingException {
 		modelInfoHolder.changeValues();
 		this.messageTemplate.convertAndSend("/info/values",
